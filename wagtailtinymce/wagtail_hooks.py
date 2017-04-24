@@ -35,9 +35,16 @@ from django.utils.html import format_html_join
 from django.utils.safestring import mark_safe
 
 from wagtail.wagtailadmin.templatetags.wagtailadmin_tags import hook_output
+
 from wagtail.wagtailcore import hooks
+from wagtail.wagtailcore.whitelist import attribute_rule, check_url, allow_without_attributes
 
-
+@hooks.register('construct_whitelister_element_rules')
+def whitelister_element_rules():
+    return {
+        'a': attribute_rule({'href': check_url, 'target': True}),
+        'span': attribute_rule({'style': True, 'data-mce-style':True}),
+    }
 def to_js_primitive(string):
     return mark_safe(json.dumps(escape(string)))
 
@@ -132,3 +139,4 @@ def docs_richtexteditor_js():
         to_js_primitive(static('wagtailtinymce/js/tinymce-plugins/wagtaildoclink.js')),
         to_js_primitive(translation.to_locale(translation.get_language())),
     )
+
