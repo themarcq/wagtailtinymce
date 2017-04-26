@@ -55,7 +55,6 @@ def to_js_primitive(string):
 def insert_editor_css():
     css_files = [
         'wagtailtinymce/css/icons.css'
-        'wagtailtinymce/css/custom.css'
     ]
     css_includes = format_html_join(
         '\n',
