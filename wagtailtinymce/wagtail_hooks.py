@@ -44,6 +44,8 @@ def whitelister_element_rules():
     return {
         'a': attribute_rule({'href': check_url, 'target': True}),
         'span': attribute_rule({'style': True, 'data-mce-style':True}),
+        'ul': attribute_rule({'style': True, 'data-mce-style':True, 'class': True, 'data-mce-class':True}),
+        'li': attribute_rule({'style': True, 'data-mce-style':True, 'class': True, 'data-mce-class':True}),
     }
 def to_js_primitive(string):
     return mark_safe(json.dumps(escape(string)))
@@ -53,6 +55,7 @@ def to_js_primitive(string):
 def insert_editor_css():
     css_files = [
         'wagtailtinymce/css/icons.css'
+        'wagtailtinymce/css/custom.css'
     ]
     css_includes = format_html_join(
         '\n',
