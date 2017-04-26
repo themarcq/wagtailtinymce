@@ -58,6 +58,9 @@ function makeTinyMCEEditable(id, kwargs) {
             editor.on('change', function () {
                 editor.save();
             });
+            editor.contentStyles.push('img.richtext-image.right {float: right;}');
+            editor.contentStyles.push('img.richtext-image.left {float: left;}');
+            editor.contentStyles.push('img.richtext-image.full-width {width: 100%; height: auto;}');
         }
     });
 
