@@ -46,6 +46,7 @@ def whitelister_element_rules():
         'span': attribute_rule({'style': True, 'data-mce-style':True}),
         'ul': attribute_rule({'style': True, 'data-mce-style':True, 'class': True, 'data-mce-class':True}),
         'li': attribute_rule({'style': True, 'data-mce-style':True, 'class': True, 'data-mce-class':True}),
+        'p': attribute_rule({'style': True, 'data-mce-style':True, 'class': True, 'data-mce-class':True}),
     }
 def to_js_primitive(string):
     return mark_safe(json.dumps(escape(string)))
