@@ -131,6 +131,49 @@ A complete ``wagtail_hooks.py`` file example:
             to_js_primitive(translation.to_locale(translation.get_language())),
         )
 
+
+Additional CSS
+==============
+Add this to your CSS file:
+
+.. code-block:: css
+
+    /*TinyMCE fixes*/
+    .rich-text ul {
+        color: black;
+
+    }
+
+    .rich-text li {
+        display: list-item;
+        list-style-type: inherit;
+    }
+
+    img.richtext-image.right {
+        float: right;
+    }
+    img.richtext-image.left {
+        float: left;
+    }
+    img.richtext-image.full-width {
+        width: 100%;
+        height: auto;
+    }
+    ul.arrow {
+        list-style-type: none;
+    }
+    ul.tick {
+        list-style-type: none;
+    }
+    .arrow li::before {
+        content: "Ø";
+        font-family: "Wingdings";
+    }
+    .tick li::before {
+        content: "ü";
+        font-family: "Wingdings";
+    }
+
 Versioning
 ==========
 The version number of this package is the TinyMCE version, followed by

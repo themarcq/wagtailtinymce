@@ -61,6 +61,10 @@ function makeTinyMCEEditable(id, kwargs) {
             editor.contentStyles.push('img.richtext-image.right {float: right;}');
             editor.contentStyles.push('img.richtext-image.left {float: left;}');
             editor.contentStyles.push('img.richtext-image.full-width {width: 100%; height: auto;}');
+            editor.contentStyles.push('ul.arrow {list-style-type: none;}');
+            editor.contentStyles.push('ul.tick {list-style-type: none;}');
+            editor.contentStyles.push('.arrow li::before {content: "Ø";font-family: "Wingdings";}');
+            editor.contentStyles.push('.tick li::before {content: "ü";font-family: "Wingdings";}');
         }
     });
 
