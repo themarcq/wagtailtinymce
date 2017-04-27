@@ -47,7 +47,7 @@ def whitelister_element_rules():
         'ul': attribute_rule({'style': True, 'data-mce-style':True, 'class': True, 'data-mce-class':True}),
         'li': attribute_rule({'style': True, 'data-mce-style':True, 'class': True, 'data-mce-class':True}),
         'p': attribute_rule({'style': True, 'data-mce-style':True, 'class': True, 'data-mce-class':True}),
-        'table': attribute_rule({'style': True, 'data-mce-style':True, 'class': True, 'data-mce-class':True}),
+        'table': attribute_rule({'style': True, 'width': True, 'data-mce-style':True, 'class': True, 'data-mce-class':True}),
         'thead': attribute_rule({'style': True, 'data-mce-style':True, 'class': True, 'data-mce-class':True}),
         'tbody': attribute_rule({'style': True, 'data-mce-style':True, 'class': True, 'data-mce-class':True}),
         'tr': attribute_rule({'style': True, 'data-mce-style':True, 'class': True, 'data-mce-class':True}),
