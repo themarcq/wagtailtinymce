@@ -64,7 +64,7 @@ function makeTinyMCEEditable(id, kwargs) {
             editor.contentStyles.push('ul.arrow {list-style-type: none;margin-left: -15px;}');
             editor.contentStyles.push('ul.tick {list-style-type: none;margin-left: -15px;}');
             editor.contentStyles.push('.arrow li::before {content: "\2B9A";}');
-            editor.contentStyles.push('.tick li::before {content: "\2713";}');
+            editor.contentStyles.push('.tick li::before {content: "\1F5F8";}');
         }
     });
 
