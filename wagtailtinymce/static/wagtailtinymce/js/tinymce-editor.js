@@ -63,9 +63,8 @@ function makeTinyMCEEditable(id, kwargs) {
             editor.contentStyles.push('img.richtext-image.full-width {width: 100%; height: auto;}');
             editor.contentStyles.push('ul.arrow {list-style-type: none;margin-left: -15px;}');
             editor.contentStyles.push('ul.tick {list-style-type: none;margin-left: -15px;}');
-            editor.contentStyles.push('.arrow li::before {content: "Ø";font-family: "Wingdings";}');
-            editor.contentStyles.push('.tick li::before {content: "ü";font-family: "Wingdings";}');
-
+            editor.contentStyles.push('.arrow li::before {content: "\2B9A";}');
+            editor.contentStyles.push('.tick li::before {content: "\2713";}');
         }
     });
 
