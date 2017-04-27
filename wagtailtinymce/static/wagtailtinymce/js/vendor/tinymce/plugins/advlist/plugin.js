@@ -53,8 +53,11 @@ tinymce.PluginManager.add('advlist', function(editor) {
 
 			list = dom.getParent(sel.getNode(), 'ol,ul');
 			if (list) {
-				// dom.setStyle(list, 'listStyleType', styleValue ? styleValue : null);
-				dom.setAttrib(list, 'class', styleValue ? styleValue : null);
+				if(styleValue=='arrow' || styleValue=='tick'){
+					dom.setAttrib(list, 'class', styleValue ? styleValue : null);
+				} else {
+                    dom.setStyle(list, 'listStyleType', styleValue ? styleValue : null);
+                }
 				list.removeAttribute('data-mce-style');
 			}
 
