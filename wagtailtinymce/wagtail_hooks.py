@@ -53,8 +53,10 @@ def whitelister_element_rules():
         'tr': attribute_rule({'style': True, 'data-mce-style':True, 'class': True, 'data-mce-class':True}),
         'th': attribute_rule({'style': True, 'data-mce-style':True, 'class': True, 'data-mce-class':True}),
         'td': attribute_rule({'style': True, 'data-mce-style':True, 'class': True, 'data-mce-class':True}),
-        'img': attribute_rule({'style': True, 'data-mce-style':True, 'class': True, 'data-mce-class':True, 'src': check_url, 'width': True, 'height': True,
-                               'alt': True}),
+        'img': attribute_rule({'style': True, 'data-mce-style':True, 'class': True, 'data-mce-class':True,
+                               'src': check_url, 'width': True, 'height': True, 'alt': True}),
+        'iframe': attribute_rule({'src':True, 'frameborder':True, 'style':True, 'scrolling':True, 'class': True,
+                                  'width':True, 'height':True, 'name':True, 'align':True}),
     }
 def to_js_primitive(string):
     return mark_safe(json.dumps(escape(string)))
