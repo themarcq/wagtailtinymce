@@ -27,7 +27,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 'use strict';
 
-var mcePlugins = ['hr', 'code', 'fullscreen', 'noneditable', 'paste', 'table', 'textcolor', 'advlist'],
+var mcePlugins = ['hr', 'code', 'fullscreen', 'noneditable', 'paste', 'table', 'textcolor', 'advlist', 'media'],
     mceTools = ['inserttable'],
     mceExternalPlugins = {};
 
