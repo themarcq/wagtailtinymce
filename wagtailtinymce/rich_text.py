@@ -56,7 +56,7 @@ class TinyMCERichTextArea(WidgetWithScript, widgets.Textarea):
                 ],
                 [
                     ['forecolor', 'backcolor'],
-                    ['embed']
+                    ['media']
                 ]
             ],
             'menus': False,
