@@ -159,13 +159,13 @@ Add this to your CSS file:
         width: 100%;
         height: auto;
     }
-    ul.arrow {
+    ul.listarrow {
         list-style-type: none;
     }
     ul.tick {
         list-style-type: none;
     }
-    .arrow li::before {
+    .listarrow li::before {
         content: "Ø";
         font-family: "Wingdings";
     }
