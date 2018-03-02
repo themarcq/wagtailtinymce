@@ -37,7 +37,28 @@ from django.utils.safestring import mark_safe
 from wagtail.admin.templatetags.wagtailadmin_tags import hook_output
 from wagtail.core import hooks
 
+from wagtail.wagtailcore import hooks
+from wagtail.wagtailcore.whitelist import attribute_rule, check_url, allow_without_attributes
 
+@hooks.register('construct_whitelister_element_rules')
+def whitelister_element_rules():
+    return {
+        'a': attribute_rule({'href': check_url, 'target': True}),
+        'span': attribute_rule({'style': True, 'data-mce-style':True}),
+        'ul': attribute_rule({'style': True, 'data-mce-style':True, 'class': True, 'data-mce-class':True}),
+        'li': attribute_rule({'style': True, 'data-mce-style':True, 'class': True, 'data-mce-class':True}),
+        'p': attribute_rule({'style': True, 'data-mce-style':True, 'class': True, 'data-mce-class':True}),
+        'table': attribute_rule({'style': True, 'width': True, 'data-mce-style':True, 'class': True, 'data-mce-class':True}),
+        'thead': attribute_rule({'style': True, 'data-mce-style':True, 'class': True, 'data-mce-class':True}),
+        'tbody': attribute_rule({'style': True, 'data-mce-style':True, 'class': True, 'data-mce-class':True}),
+        'tr': attribute_rule({'style': True, 'data-mce-style':True, 'class': True, 'data-mce-class':True}),
+        'th': attribute_rule({'style': True, 'data-mce-style':True, 'class': True, 'data-mce-class':True}),
+        'td': attribute_rule({'style': True, 'data-mce-style':True, 'class': True, 'data-mce-class':True}),
+        'img': attribute_rule({'style': True, 'data-mce-style':True, 'class': True, 'data-mce-class':True,
+                               'src': check_url, 'width': True, 'height': True, 'alt': True}),
+        'iframe': attribute_rule({'src':True, 'frameborder':True, 'style':True, 'scrolling':True, 'class': True,
+                                  'width':True, 'height':True, 'name':True, 'align':True}),
+    }
 def to_js_primitive(string):
     return mark_safe(json.dumps(escape(string)))
 
@@ -132,3 +153,4 @@ def docs_richtexteditor_js():
         to_js_primitive(static('wagtailtinymce/js/tinymce-plugins/wagtaildoclink.js')),
         to_js_primitive(translation.to_locale(translation.get_language())),
     )
+
