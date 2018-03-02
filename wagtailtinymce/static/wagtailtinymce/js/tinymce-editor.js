@@ -27,7 +27,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 'use strict';
 
-var mcePlugins = ['hr', 'code', 'fullscreen', 'noneditable', 'paste', 'table'],
+var mcePlugins = ['hr', 'code', 'fullscreen', 'noneditable', 'paste', 'table', 'textcolor', 'advlist', 'media'],
     mceTools = ['inserttable'],
     mceExternalPlugins = {};
 
@@ -58,6 +58,13 @@ function makeTinyMCEEditable(id, kwargs) {
             editor.on('change', function () {
                 editor.save();
             });
+            editor.contentStyles.push('img.richtext-image.right {float: right;}');
+            editor.contentStyles.push('img.richtext-image.left {float: left;}');
+            editor.contentStyles.push('img.richtext-image.full-width {width: 100%; height: auto;}');
+            editor.contentStyles.push('ul.listarrow {list-style-type: none;margin-left: -15px;}');
+            editor.contentStyles.push('ul.tick {list-style-type: none;margin-left: -15px;}');
+            editor.contentStyles.push('.arrow li::before {content: "\\2B9A";font-family: arial;}');
+            editor.contentStyles.push('.tick li::before {content: "\\1F5F8";font-family: arial;}');
         }
     });
 

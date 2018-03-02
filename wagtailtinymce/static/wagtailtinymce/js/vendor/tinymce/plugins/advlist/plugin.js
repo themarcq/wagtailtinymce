@@ -33,7 +33,7 @@ tinymce.PluginManager.add('advlist', function(editor) {
 		"default,lower-alpha,lower-greek,lower-roman,upper-alpha,upper-roman"
 	));
 
-	ulMenuItems = buildMenuItems('UL', editor.getParam("advlist_bullet_styles", "default,circle,disc,square"));
+	ulMenuItems = buildMenuItems('UL', editor.getParam("advlist_bullet_styles", "default,circle,disc,square,arrow,tick"));
 
 	function applyListFormat(listName, styleValue) {
 		editor.undoManager.transact(function() {
@@ -53,7 +53,10 @@ tinymce.PluginManager.add('advlist', function(editor) {
 
 			list = dom.getParent(sel.getNode(), 'ol,ul');
 			if (list) {
-				dom.setStyle(list, 'listStyleType', styleValue ? styleValue : null);
+				if(styleValue=='arrow' || styleValue=='tick') {
+                    dom.setAttrib(list, 'class', styleValue ? styleValue : null);
+                }
+                dom.setStyle(list, 'listStyleType', styleValue ? styleValue : null);
 				list.removeAttribute('data-mce-style');
 			}
 
