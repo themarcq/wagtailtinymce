@@ -37,8 +37,8 @@ from django.utils.safestring import mark_safe
 from wagtail.admin.templatetags.wagtailadmin_tags import hook_output
 from wagtail.core import hooks
 
-from wagtail.wagtailcore import hooks
-from wagtail.wagtailcore.whitelist import attribute_rule, check_url, allow_without_attributes
+from wagtail.core import hooks
+from wagtail.core.whitelist import attribute_rule, check_url, allow_without_attributes
 
 @hooks.register('construct_whitelister_element_rules')
 def whitelister_element_rules():
