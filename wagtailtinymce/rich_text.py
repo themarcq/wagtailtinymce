@@ -31,7 +31,7 @@ from django.forms import widgets
 from django.utils import translation
 from wagtail.utils.widgets import WidgetWithScript
 from wagtail.admin.edit_handlers import RichTextFieldPanel
-from wagtail.core.rich_text import DbWhitelister
+from wagtail.admin.rich_text.converters.editor_html import DbWhitelister
 from wagtail.core.rich_text import expand_db_html
 
 
