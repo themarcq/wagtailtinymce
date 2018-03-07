@@ -33,6 +33,7 @@ from wagtail.utils.widgets import WidgetWithScript
 from wagtail.admin.edit_handlers import RichTextFieldPanel
 from wagtail.admin.rich_text.converters.editor_html import DbWhitelister
 from wagtail.core.rich_text import expand_db_html
+from wagtail.core.rich_text import features as feature_registry
 
 
 class TinyMCERichTextArea(WidgetWithScript, widgets.Textarea):
@@ -73,6 +74,12 @@ class TinyMCERichTextArea(WidgetWithScript, widgets.Textarea):
         self.kwargs = self.getDefaultArgs()
         if kwargs is not None:
             self.kwargs.update(kwargs)
+        features = feature_registry.get_default_features()
+        self.converter_rules = []
+        for feature in features:
+            rule = feature_registry.get_converter_rule('editorhtml', feature)
+            if rule is not None:
+                self.converter_rules.extend(rule)
 
     def get_panel(self):
         return RichTextFieldPanel
@@ -110,5 +117,6 @@ class TinyMCERichTextArea(WidgetWithScript, widgets.Textarea):
         original_value = super(TinyMCERichTextArea, self).value_from_datadict(data, files, name)
         if original_value is None:
             return None        
-        whitelister = DbWhitelister([])
+        
+        whitelister = DbWhitelister(self.converter_rules)
         return whitelister.clean(original_value)
