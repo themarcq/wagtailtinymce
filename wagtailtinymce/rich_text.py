@@ -110,5 +110,5 @@ class TinyMCERichTextArea(WidgetWithScript, widgets.Textarea):
         original_value = super(TinyMCERichTextArea, self).value_from_datadict(data, files, name)
         if original_value is None:
             return None        
-        whitelister = Whitelister()
+        whitelister = DbWhitelister()
         return whitelister.clean(original_value)
